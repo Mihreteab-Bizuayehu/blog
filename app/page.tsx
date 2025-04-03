@@ -1,4 +1,3 @@
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { getPosts } from "./actions";
 import { Suspense } from "react";
 import BlogPost from "@/components/generals/BlogPost";
@@ -16,8 +15,6 @@ import BlogPost from "@/components/generals/BlogPost";
 export default Home
 
  export async function BlogPosts() {
-const { getUser } = await getKindeServerSession();
-const user = await getUser();
   const posts = await getPosts();
   
    return (
