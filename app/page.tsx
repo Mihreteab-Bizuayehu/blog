@@ -2,7 +2,7 @@ import { getPosts } from "./actions";
 import { Suspense } from "react";
 import BlogPost from "@/components/generals/BlogPost";
 
- function Home() {
+ export default function Home() {
   
   return (
     <Suspense fallback={<div className="flex items-center justify-center h-screen text-2xl text-blue-500 font-extrabold">Loading...</div>}>
@@ -11,8 +11,6 @@ import BlogPost from "@/components/generals/BlogPost";
   )
  
 }
-
-export default Home
 
  export async function BlogPosts() {
   const posts = await getPosts();
