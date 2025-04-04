@@ -1,11 +1,13 @@
+'use client'
+
 import Link from 'next/link'
 import { buttonVariants } from '../ui/button'
 import { LoginLink, LogoutLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components';
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 
-const Header =async () => {
-  const { getUser } =  await getKindeServerSession();
-  const user= await getUser();
+const Header = () => {
+  const { getUser } = useKindeBrowserClient();
+  const user=  getUser();
   return ( 
     <nav className="py-5 justify-between items-center flex gap-10">
       <Link href="/" className="text-2xl font-bold">
